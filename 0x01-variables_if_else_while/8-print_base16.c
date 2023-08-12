@@ -3,7 +3,7 @@
 
 /**
   *main - Entry point
-  *Description: A program that prints all the numbers of 
+  *Description: A program that prints all the numbers of
   *base 16 in lowercase followed by a new line.
   *Return: Always 0
   */
