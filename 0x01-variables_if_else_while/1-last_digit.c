@@ -2,10 +2,9 @@
 #include <time.h>
 #include <stdio.h>
 #include <string.h>
-
 /**
  * main: entry point
- *
+ *Description: 'Program that prints last digit of a rand no'
  * Return: Alwyas 0 (success)
  */
 int main(void)
