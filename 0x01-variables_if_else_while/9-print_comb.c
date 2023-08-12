@@ -2,8 +2,10 @@
 #include <stdlib.h>
 
 /**
- *main: Entry point
+ *main - Entry point
+ *
  *Description: program that prints all possible comnbo of nos.
+ *
  *Return: Always 0
  */
 int main(void)
