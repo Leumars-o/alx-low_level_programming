@@ -6,7 +6,7 @@
   * Description: function that prints the alphabet
   * in lower case
   *
-  * Return: Always 0
+  * Return: void
   */
 void print_alphabet(void)
 {
