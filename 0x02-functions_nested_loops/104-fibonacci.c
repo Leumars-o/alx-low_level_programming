@@ -18,7 +18,7 @@ int main(void)
 	unsigned long int bef2;
 	unsigned long int aft1;
 	unsigned long int aft2;
-	int n = 98;
+	unsigned long int n = 98;
 
 	for (i = 1; i < n - 7; i++)
 	{
