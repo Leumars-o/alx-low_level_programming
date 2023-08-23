@@ -4,7 +4,10 @@
 /**
   * print_array - entry point
   *
-  * Description: function that prints n elements of 
+  * @a: pointer parameter a
+  * @n: integer parameter
+  *
+  * Description: function that prints n elements of
   * an array of integers
   *
   * Return: void
@@ -19,7 +22,7 @@ void print_array(int *a, int n)
 	}
 	if (i == (n - 1))
 	{
-		printf("%d", a[n -1]);
+		printf("%d", a[n - 1]);
 	}
 	printf("\n");
 }
