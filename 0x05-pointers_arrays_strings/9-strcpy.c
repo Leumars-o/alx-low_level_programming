@@ -22,9 +22,9 @@ char *_strcpy(char *dest, char *src)
 		i++;
 	}
 
-	for (; j < i; j++)
+	for (j = i - 1; j >= 0; j--)
 	{
-		dest[j] = src[i];
+		dest[j] = src[j];
 	}
 	dest[i] = '\0';
 	return (dest);
