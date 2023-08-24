@@ -14,6 +14,7 @@ int _atoi(char *s)
 	int n = 0;
 	int sign = 1;
 	int i;
+	int digits;
 
 	for (i = 0; s[i] == ' ' || s[i] == '\t'; i++)
 		;
@@ -28,10 +29,10 @@ int _atoi(char *s)
 	}
 	for (; s[i] >= '0' && s[i] <= '9'; i++)
 	{
-		int digits;
-
 		digits = s[i] - '0';
 		n = (n * 10) + digits;
 	}
+	if (digits == 0)
+		return (0);
 	return (sign * n);
 }
