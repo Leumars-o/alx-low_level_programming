@@ -1,5 +1,6 @@
 #include "main.h"
 
+
 /**
   * _strcat - entry point
   *
@@ -14,17 +15,10 @@
   */
 char *_strcat(char *dest, char *src)
 {
-	int i = 0;
+	int i;
 	int j = 0;
-	int n;
 	int dest_len = 0;
 
-	/* Find the lenght of source string */
-
-	while  (*(src + i) != '\0')
-	{
-		i++;
-	}
 	/* find the lenght of destination string */
 	for (j = 0; *(dest + j) != '\0'; j++)
 	{
@@ -33,11 +27,11 @@ char *_strcat(char *dest, char *src)
 	/* concatenate the two strings */
 	dest_len = j;
 
-	for (n = 0; *(src + n) != '\0'; n++)
+	for (i = 0; *(src + i) != '\0'; i++)
 	{
-		dest[j + n] = src[n];
+		dest[j + i] = src[i];
 	}
 
-	dest[j + n + 1] = '\0';
+	dest[j + i + 1] = '\0';
 	return (dest);
 }
