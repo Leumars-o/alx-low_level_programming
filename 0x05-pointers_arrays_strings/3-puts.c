@@ -3,6 +3,8 @@
 /**
   * _puts - entry point
   *
+  * @str: pointer character to be printed
+  *
   * Description: function that prints a string
   * followed by a new line to stdout
   *
@@ -12,10 +14,9 @@ void _puts(char *str)
 {
 	int i;
 
-	for (i = 0; str[i] != '\0'; i++)
+	for (i = 0; *(str + i) != '\0'; i++)
 	{
-		_putchar(*str);
-		str++;
+		_putchar(*(str + i));
 	}
 	_putchar('\n');
 }
