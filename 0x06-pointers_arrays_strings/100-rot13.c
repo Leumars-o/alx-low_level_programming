@@ -11,20 +11,18 @@
   */
 char *rot13(char *n)
 {
-	int i;
+	int i, j;
+	char s1[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char s2[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
 	for (i = 0; *(n + i) != '\0'; i++)
 	{
-		if ((*(n + i) >= 'a' && *(n + i) <= 'm') ||
-				(*(n + i) >= 'A' && *(n + i) <= 'M'))
+		for (j = 0; j < 52; j++)
 		{
-			*(n + i) += 13;
-		}
-
-		else if ((*(n + i) >= 'n' && *(n + i) <= 'z') ||
-				(*(n + i) >= 'N' && *(n + i) <= 'Z'))
-		{
-			*(n + i) -= 13;
+			if (*(n + i) == s1[j])
+			{
+				*(n + i) = s2[j];
+			}
 		}
 	}
 	return (n);
