@@ -22,6 +22,7 @@ char *rot13(char *n)
 			if (*(n + i) == s1[j])
 			{
 				*(n + i) = s2[j];
+				break;
 			}
 		}
 	}
