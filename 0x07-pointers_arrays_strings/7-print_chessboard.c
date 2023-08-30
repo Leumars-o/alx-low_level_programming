@@ -3,15 +3,14 @@
 /**
   * print_chessboard - function to print chess board
   *
-  * Description: Function prints chess board
-  *
   * @a: Pointer to array
   *
-  * Return: void;
+  * Return: void
   */
 void print_chessboard(char (*a)[8])
 {
-	int i, j;
+	int i;
+	int j;
 
 	for (i = 0; i < 8; i++)
 	{
