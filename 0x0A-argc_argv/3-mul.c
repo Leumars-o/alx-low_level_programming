@@ -56,7 +56,10 @@ int main(int argc, char *argv[] __attribute__((unused)))
 	int product = 0;
 
 	if (argc != 3)
-		printf("Error");
+	{
+		printf("Error\n");
+		return (1);
+	}
 	product = _atoi(argv[1]) * _atoi(argv[2]);
 	printf("%d\n", product);
 	return (0);
