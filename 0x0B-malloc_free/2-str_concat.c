@@ -44,12 +44,18 @@ char *str_concat(char *s1, char *s2)
 
 	if (s1 == NULL && s2 == NULL)
 	{
-		return (NULL);
+		ptr = NULL;
 	}
 	else
 	{
-		s1_len = str_count(s1);
-		s2_len = str_count(s2);
+		if (s1 != NULL)
+			s1_len = str_count(s1);
+		else
+			s1_len = 0;
+		if (s2 != NULL)
+			s2_len = str_count(s2);
+		else
+			s2_len = 0;
 		size = s1_len + s2_len;
 		ptr = (char *)malloc(size * sizeof(char) + 1);
 		if (ptr == NULL)
