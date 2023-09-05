@@ -55,19 +55,22 @@ char *str_concat(char *s1, char *s2)
 	ptr = (char *)malloc(size * sizeof(char) + 1);
 
 	if (ptr == NULL)
-		ptr = NULL;
-	for (i = 0; i < size; i++)
+		return (NULL);
+	else
 	{
-		if (i < s1_len)
+		for (i = 0; i < size; i++)
 		{
-			*(ptr + i) = *(s1 + i);
+			if (i < s1_len)
+			{
+				*(ptr + i) = *(s1 + i);
+			}
+			if (i >= s1_len && i < size)
+			{
+				*(ptr + i) = *(s2 + j);
+				j++;
+			}
 		}
-		if (i >= s1_len && i < size)
-		{
-			*(ptr + i) = *(s2 + j);
-			j++;
-		}
+		*(ptr + size) = '\0';
 	}
-	*(ptr + size) = '\0';
 	return (ptr);
 }
