@@ -42,37 +42,32 @@ char *str_concat(char *s1, char *s2)
 	int j = 0;
 	char *ptr;
 
-	if (s1 == NULL && s2 == NULL)
-	{
-		ptr = NULL;
-	}
+	if (s1 != NULL)
+		s1_len = str_count(s1);
 	else
+		s1_len = 0;
+	if (s2 != NULL)
+		s2_len = str_count(s2);
+	else
+		s2_len = 0;
+
+	size = s1_len + s2_len;
+	ptr = (char *)malloc(size * sizeof(char) + 1);
+
+	if (ptr == NULL)
+		ptr = NULL;
+	for (i = 0; i < size; i++)
 	{
-		if (s1 != NULL)
-			s1_len = str_count(s1);
-		else
-			s1_len = 0;
-		if (s2 != NULL)
-			s2_len = str_count(s2);
-		else
-			s2_len = 0;
-		size = s1_len + s2_len;
-		ptr = (char *)malloc(size * sizeof(char) + 1);
-		if (ptr == NULL)
-			return (NULL);
-		for (i = 0; i < size; i++)
+		if (i < s1_len)
 		{
-			if (i < s1_len)
-			{
-				*(ptr + i) = *(s1 + i);
-			}
-			if (i >= s1_len && i < size)
-			{
-				*(ptr + i) = *(s2 + j);
-				j++;
-			}
+			*(ptr + i) = *(s1 + i);
 		}
-		*(ptr + size) = '\0';
+		if (i >= s1_len && i < size)
+		{
+			*(ptr + i) = *(s2 + j);
+			j++;
+		}
 	}
+	*(ptr + size) = '\0';
 	return (ptr);
 }
