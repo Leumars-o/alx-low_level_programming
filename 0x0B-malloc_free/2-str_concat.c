@@ -56,21 +56,18 @@ char *str_concat(char *s1, char *s2)
 
 	if (ptr == NULL)
 		return (NULL);
-	else
+	for (i = 0; i < size; i++)
 	{
-		for (i = 0; i < size; i++)
+		if (i < s1_len)
 		{
-			if (i < s1_len)
-			{
-				*(ptr + i) = *(s1 + i);
-			}
-			if (i >= s1_len && i < size)
-			{
-				*(ptr + i) = *(s2 + j);
-				j++;
-			}
+			*(ptr + i) = *(s1 + i);
 		}
-		*(ptr + size) = '\0';
+		if (i >= s1_len && i < size)
+		{
+			*(ptr + i) = *(s2 + j);
+			j++;
+		}
 	}
+		*(ptr + size) = '\0';
 	return (ptr);
 }
