@@ -10,8 +10,29 @@
   *
   * @str: String parameter
   *
-  * Return: Pointer to array
+  * Return: NULL if str = NULL or memory insufficient
+  * Pointer to array on success
   */
 char *_strdup(char *str)
 {
+	int i;
+	char *ptr;
+	int size = 0;
 
+	if (str == NULL)
+	{
+		return (NULL);
+	}
+	else
+	{
+		for (i = 0; *(str + i) != '\0'; i++)
+			size++;
+		ptr = (char *)malloc((size * sizeof(char)) + 1);
+		for (i = 0; i < size; i++)
+		{
+			*(ptr + i) = *(str + i);
+		}
+		*(ptr + size) = '\0';
+	}
+	return (ptr);
+}
