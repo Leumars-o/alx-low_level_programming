@@ -1,0 +1,70 @@
+#include "main.h"
+#include <stdlib.h>
+
+/**
+  * strtow - splits string to word
+  *
+  * Description: function that splits string into words
+  *
+  * @s: Pointer string parameter
+  *
+  * Return: Pointer to array of words
+  */
+char **strtow(char *str)
+{
+	int i = 0;
+	int j  = 0;
+	int len = 0; 
+	int w = 0;
+	int wordlen = 0;
+	char *ptr, *word;
+	char **array;
+
+	if (str == NULL || str[0] == '\0')
+		return (NULL);
+	/* count the lenght of the string excluding spaces */
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		if (str[i] == ' ')
+			continue;
+		else
+			len++;
+		if (str[i] != ' ' && str[i + 1] == ' ')
+			w++;
+	}
+	/* Allocate memory required for the array */
+	array = (char **)malloc((w + 2) * sizeof(char));
+	if (array == NULL)
+		return (NULL);
+	/* Allocate memory for the strings */
+	word = (char *)malloc((len + 1) * sizeof(char));
+	if (word == NULL)
+	{
+		free(array);
+		return (NULL);
+	}	
+	/*string to word */
+	ptr = word;
+	while (str[i] != '\0')
+	{
+		if (str[i] != ' ')
+		{
+			*ptr = str[i];
+			ptr++;
+			wordlen++
+		}
+		if (str[i] != ' ' && str[i + 1] == ' ')
+		{
+			*ptr = '\0';
+			array[j] = (char *)malloc((wordlen + 1) * sizeof(char));
+			if (array[j] == NULL)
+			{
+				free(array);
+				return (NULL);
+			}
+		}
+	}
+	_strcpy(array[j], word);
+	array[j + 1] = NULL;
+	return (array);
+}
