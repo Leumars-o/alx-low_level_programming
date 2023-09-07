@@ -47,36 +47,38 @@ char *allocate_memory(int len)
  */
 char **strtow(char *str)
 {
-	int i, k, word_len;
-	int words = 0;
-	int j = 0;
+	int i, j = 0, k = 0, len = 0, words, start, end;
 	char **array, *tmp;
 
+	while (*(str + len))
+		len++;
 	words = count(str);
 	if (words == 0)
 		return (NULL);
-	array = (char **)malloc(sizeof(char *) * (words + 1));
+	array = (char **) malloc(sizeof(char *) * (words + 1));
 	if (array == NULL)
 		return (NULL);
-	tmp = str;
-	for (i = 0; str[i] != '\0'; i++)
+	for (i = 0; i <= len; i++)
 	{
 		if (str[i] == ' ' || str[i] == '\0')
 		{
-			if (tmp != &str[i])
+			if (j)
 			{
-				word_len = i - (tmp - str);
-				array[j] = allocate_memory(word_len);
-				if (array[j] == NULL)
+				end = i;
+				tmp = (char *) malloc(sizeof(char) * (j + 1));
+				if (tmp == NULL)
 					return (NULL);
-				for (k = 0; k < word_len; k++)
-					array[j][k] = tmp[k];
-				array[j][k] = '\0';
-				j++;
+				while (start < end)
+					*tmp++ = str[start++];
+				*tmp = '\0';
+				array[k] = tmp - j;
+				k++;
+				j = 0;
 			}
-			tmp = &str[i + 1];
 		}
+		else if (j++ == 0)
+			start = i;
 	}
-	array[j] = NULL;
+	array[k] = NULL;
 	return (array);
 }
