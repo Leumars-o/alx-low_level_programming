@@ -1,0 +1,86 @@
+#include "main.h"
+#include <stdlib.h>
+#include <stdio.h>
+
+#define ERR_MSG "Error"
+
+/**
+  * mul - multiplies 2 positive numbers
+  *
+  * Description: Program that multiplies 2 positive numbers
+  *
+  * @num1: first positive int to be multiplied
+  * @num2: second positive int to be multiplied
+  *
+  * Return: int value if success. Error if failed.
+  */
+int is_digit(char *n)
+{
+	int i;
+
+	for (i = 0; n[i] != '\0'; i++)
+	{
+		if (n[i] < '0' || n[i] > '9')
+			return (0);
+	}
+	return (1);
+}
+int _strlen(char *n)
+{
+	int i = 0;
+
+	while (n[i] != '\0')
+		i++;
+	return (i);
+}
+void error(void)
+{
+	printf("Error\n");
+	exit(98);
+}
+int main(int argc, char *argv[])
+{
+	char *num1, *num2;
+	int len1, len2, len, i, carry, digit1, digit2;
+	int *result;
+	int a = 0;
+
+	num1 = argv[1];
+	num2 = argv[2];
+	if (argc != 3 || !is_digit(num1) || !is_digit(num2))
+		error();
+	len1 = _strlen(num1);
+	len2 = _strlen(num2);
+	len = len1 + len2;
+	result = malloc(len * sizeof(int));
+	if (result == NULL)
+		return (1);
+	for (i = 0; i <= len; i++)
+		result[i] = 0;
+	for (len1 -= 1; len1 >= 0; len1--)
+	{
+		digit1 = num1[len1] - '0';
+		carry = 0;
+		for (len2 = _strlen(num2) -1; len2 >= 0; len2--)
+		  {
+			digit2 = num2[len2] - '0';
+			carry += result[len1 + len2 + 1] + (digit1 * digit2);
+			result[len1 + len2 + 1] = carry % 10;
+			carry /= 10;
+		}
+		if (carry > 0)
+			result[len1 + len2 + 1] += carry;
+	}
+	for (i = 0; i < len - 1; i++)
+	{
+		if (result[i])
+			a = 1;
+		if (a)
+			_putchar(result[i] + '0');
+	}
+	if (!a)
+		_putchar('0');
+	_putchar('\n');
+	free(result);
+	return (0);
+}
