@@ -23,21 +23,6 @@ int count(char *str)
 	return (w);
 }
 /**
-  * allocate_memory - allocates memory
-  *
-  * @len: lenght of memory to be allocated
-  *
-  * Return: Pointer char
-  */
-char *allocate_memory(int len)
-{
-	char *word = (char *)malloc(sizeof(char) * (len + 1));
-
-	if (word == NULL)
-		return (NULL);
-	return (word);
-}
-/**
  * **strtow - splits a string into words
  *
  * @str: string to split
@@ -47,7 +32,7 @@ char *allocate_memory(int len)
  */
 char **strtow(char *str)
 {
-	int i, j = 0, k = 0, len = 0, words, start, end;
+	int i, j = 0, k = 0, l = 0, len = 0, words, start;
 	char **array, *tmp;
 
 	while (*(str + len))
@@ -62,22 +47,27 @@ char **strtow(char *str)
 	{
 		if (str[i] == ' ' || str[i] == '\0')
 		{
-			if (j)
+			if (j != 0)
 			{
-				end = i;
 				tmp = (char *) malloc(sizeof(char) * (j + 1));
 				if (tmp == NULL)
 					return (NULL);
-				while (start < end)
-					*tmp++ = str[start++];
-				*tmp = '\0';
-				array[k] = tmp - j;
+				start = i - j;
+				for (l = 0; l < j; l++)
+					tmp[l] = str[start + l];
+				tmp[j] = '\0';
+				array[k] = tmp;
 				k++;
 				j = 0;
 			}
 		}
-		else if (j++ == 0)
+		else if (j == 0)
+		{
 			start = i;
+			j++;
+		}
+		else
+			j++;
 	}
 	array[k] = NULL;
 	return (array);
