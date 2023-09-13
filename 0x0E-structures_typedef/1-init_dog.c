@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 /**
-  * int_dog - function that initializes a variable
+  * init_dog - function that initializes a variable
   *
   * Description: function initializes a variaible of type struct dog
   *
