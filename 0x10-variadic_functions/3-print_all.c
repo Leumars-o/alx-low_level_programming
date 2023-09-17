@@ -5,6 +5,9 @@
 /**
   * print_all - function that prints anything
   *
+  * Description: function prints anything based on the format specifier
+  * c, i, f, s.
+  *
   * @format: List of types of arguments passed to the function
   *
   * Return: void
