@@ -1,4 +1,3 @@
-#include <stddef.h>
 #ifndef LIST_H
 #define LIST_H
 
@@ -6,7 +5,6 @@
   * struct list_t - singlly linked list
   *
   * Description: structure to a singly linked list node
-
   * @str: string
   * @len: lenght og the string
   * @next: link to the next node
