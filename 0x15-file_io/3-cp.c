@@ -3,12 +3,12 @@
 #include <stdlib.h>
 
 /**
-  * error_msg - function that handles error message calls
-  * @err_code: Specific error code to be called
+  * err_msg - function that handles error message calls
+  * @err: Specific error code to be called
   * @file_from: Pointer to name of file we are copying from
   * @file_to: Pointer to name of file we're to copy the other file
   * contents to
-  * @fd_value: Integer value representing the status of the fd operation
+  * @fd_val: Integer value representing the status of the fd operation
   * Return: Void
   */
 void err_msg(int err, const char *file_from, const char *file_to, int fd_val)
