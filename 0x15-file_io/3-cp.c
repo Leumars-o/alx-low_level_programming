@@ -25,7 +25,7 @@ void err_msg(int err, const char *file_from, const char *file_to, int fd_val)
 	}
 	else if (err == 99)
 	{
-		dprintf(STDERR_FILENO, "Error: Cant't write to %s\n", file_to);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 		exit(99);
 	}
 	else if (err == 100)
