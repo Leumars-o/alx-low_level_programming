@@ -15,7 +15,7 @@ void err_msg(int err, const char *file_from, const char *file_to, int fd_val)
 {
 	if (err == 97)
 	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from, file_to\n");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 	else if (err == 98)
